@@ -40,14 +40,17 @@ pip install -e .
 ### Quick Start
 
 ```python
-from bt_api_satoshitango import SatoshitangoApi
+from bt_api_py import BtApi
 
-# Initialize
-feed = SatoshitangoApi(api_key="your_key", secret="your_secret")
+api = BtApi(exchange_kwargs={
+    "SATOSHITANGO___SPOT": {
+        "api_key": "your_key",
+        "secret": "your_secret",
+    }
+})
 
-# Get ticker data
-ticker = feed.get_ticker("BTCUSDT")
-print(ticker)
+ticker = api.get_tick("SATOSHITANGO___SPOT", "BTCUSD")
+balance = api.get_balance("SATOSHITANGO___SPOT")
 ```
 
 ### Supported Operations
@@ -130,14 +133,17 @@ pip install -e .
 ### 快速开始
 
 ```python
-from bt_api_satoshitango import SatoshitangoApi
+from bt_api_py import BtApi
 
-# 初始化
-feed = SatoshitangoApi(api_key="your_key", secret="your_secret")
+api = BtApi(exchange_kwargs={
+    "SATOSHITANGO___SPOT": {
+        "api_key": "your_key",
+        "secret": "your_secret",
+    }
+})
 
-# 获取行情数据
-ticker = feed.get_ticker("BTCUSDT")
-print(ticker)
+ticker = api.get_tick("SATOSHITANGO___SPOT", "BTCUSD")
+balance = api.get_balance("SATOSHITANGO___SPOT")
 ```
 
 ### 支持的操作

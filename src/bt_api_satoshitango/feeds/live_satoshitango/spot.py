@@ -4,6 +4,7 @@ from typing import Any
 
 from bt_api_base.feeds.capability import Capability
 from bt_api_base.functions.utils import update_extra_data
+
 from bt_api_satoshitango.feeds.live_satoshitango.request_base import SatoshiTangoRequestData
 
 
@@ -205,9 +206,7 @@ class SatoshiTangoRequestDataSpot(SatoshiTangoRequestData):
         path, params, extra_data = self._get_account(extra_data, **kwargs)
         return self.request(path, params=params, extra_data=extra_data)
 
-    def _make_order(
-        self, symbol, volume, price, order_type, offset="open", extra_data=None, **kwargs
-    ):
+    def _make_order(self, symbol, volume, price, order_type, offset="open", extra_data=None, **kwargs):
         path = "POST /v1/order"
         params = {
             "symbol": symbol,
@@ -246,9 +245,7 @@ class SatoshiTangoRequestDataSpot(SatoshiTangoRequestData):
         extra_data=None,
         **kwargs,
     ):
-        path, params, extra_data = self._make_order(
-            symbol, volume, price, order_type, offset, extra_data, **kwargs
-        )
+        path, params, extra_data = self._make_order(symbol, volume, price, order_type, offset, extra_data, **kwargs)
         return self.request(path, body=params, extra_data=extra_data)
 
     def _cancel_order(self, symbol, order_id, extra_data=None, **kwargs):

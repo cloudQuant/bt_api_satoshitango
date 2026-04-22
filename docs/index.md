@@ -11,9 +11,17 @@ pip install bt_api_satoshitango
 ```
 
 ```python
-from bt_api_satoshitango import SatoshitangoApi
-feed = SatoshitangoApi(api_key="your_key", secret="your_secret")
-ticker = feed.get_ticker("BTCUSDT")
+from bt_api_py import BtApi
+
+api = BtApi(exchange_kwargs={
+    "SATOSHITANGO___SPOT": {
+        "api_key": "your_key",
+        "secret": "your_secret",
+    }
+})
+
+ticker = api.get_tick("SATOSHITANGO___SPOT", "BTCUSD")
+balance = api.get_balance("SATOSHITANGO___SPOT")
 ```
 
 ## 中文
@@ -27,9 +35,17 @@ pip install bt_api_satoshitango
 ```
 
 ```python
-from bt_api_satoshitango import SatoshitangoApi
-feed = SatoshitangoApi(api_key="your_key", secret="your_secret")
-ticker = feed.get_ticker("BTCUSDT")
+from bt_api_py import BtApi
+
+api = BtApi(exchange_kwargs={
+    "SATOSHITANGO___SPOT": {
+        "api_key": "your_key",
+        "secret": "your_secret",
+    }
+})
+
+ticker = api.get_tick("SATOSHITANGO___SPOT", "BTCUSD")
+balance = api.get_balance("SATOSHITANGO___SPOT")
 ```
 
 ## API Reference
